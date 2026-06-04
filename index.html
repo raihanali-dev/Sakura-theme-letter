@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakura Memory Garden by REI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tree.css">
+  <link rel="stylesheet" href="css/letters.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/finale.css">
+</head>
+<body>
+  <div class="ambient-scene" aria-hidden="true">
+    <div class="sky-glow"></div>
+    <div class="sun-rays"></div>
+    <div class="pollen-field" id="pollenField"></div>
+    <div class="tree-stage">
+      <div class="realistic-sakura" id="realisticSakuraTree" role="img" aria-label="A warm cinematic Sakura tree background">
+        <img src="assets/images/painted-sakura-tree.png" alt="">
+        <span class="canopy-source source-a" data-petal-source></span>
+        <span class="canopy-source source-b" data-petal-source></span>
+        <span class="canopy-source source-c" data-petal-source></span>
+        <span class="canopy-source source-d" data-petal-source></span>
+        <span class="canopy-source source-e" data-petal-source></span>
+      </div>
+      <div class="painted-sakura" id="sakuraTree" role="img" aria-label="A mature hand-painted sakura tree">
+        <div class="tree-layer atmospheric-layer">
+          <span class="haze haze-a"></span>
+          <span class="haze haze-b"></span>
+          <span class="gold-wash"></span>
+        </div>
+
+        <div class="tree-layer generated-art-layer"></div>
+
+        <svg class="tree-layer shadow-layer" viewBox="0 0 1200 900" aria-hidden="true">
+          <ellipse cx="596" cy="842" rx="328" ry="48"></ellipse>
+          <path d="M430 822 C350 814 294 846 226 864 C318 866 383 862 455 838 C514 869 655 873 763 842 C847 866 930 865 1018 852 C932 829 853 816 770 823 Z"></path>
+        </svg>
+
+        <svg class="tree-layer trunk-layer" viewBox="0 0 1200 900" aria-hidden="true">
+          <defs>
+            <linearGradient id="paintedBark" x1="0.24" x2="0.88" y1="0.08" y2="0.98">
+              <stop offset="0" stop-color="#9c6b43"/>
+              <stop offset="0.36" stop-color="#6b4f3a"/>
+              <stop offset="0.72" stop-color="#3a2d25"/>
+              <stop offset="1" stop-color="#8a5a38"/>
+            </linearGradient>
+            <radialGradient id="warmBarkGlow" cx="42%" cy="24%" r="76%">
+              <stop offset="0" stop-color="#b78355" stop-opacity="0.95"/>
+              <stop offset="0.38" stop-color="#6b4f3a" stop-opacity="0.45"/>
+              <stop offset="1" stop-color="#3a2d25" stop-opacity="0.1"/>
+            </radialGradient>
+            <filter id="paintedDrop" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#3a2d25" flood-opacity="0.24"/>
+            </filter>
+          </defs>
+          <g filter="url(#paintedDrop)">
+            <path class="root root-a" d="M535 798 C454 813 390 836 312 870 C414 864 493 848 569 819 Z"></path>
+            <path class="root root-b" d="M628 799 C709 815 778 838 887 858 C790 871 696 852 600 820 Z"></path>
+            <path class="root root-c" d="M584 805 C550 841 510 860 462 879 C544 880 598 857 635 812 Z"></path>
+            <path class="trunk-mass" d="M579 823 C544 705 563 624 535 528 C514 453 455 406 481 318 C500 254 563 215 554 145 C601 210 594 283 633 341 C681 413 738 455 718 548 C698 644 650 715 661 823 C640 844 603 847 579 823 Z"></path>
+            <path class="trunk-glow" d="M563 802 C552 682 585 612 555 520 C537 464 505 414 521 342 C535 278 582 242 579 180 C604 257 594 330 626 390 C655 445 680 495 665 574 C649 659 617 722 626 817 C604 828 580 824 563 802 Z"></path>
+            <path class="trunk-ridge ridge-a" d="M569 789 C556 676 588 608 566 531 C548 469 525 428 538 350 C548 289 584 251 581 191"></path>
+            <path class="trunk-ridge ridge-b" d="M623 806 C612 716 648 642 639 568 C627 466 584 416 593 315 C599 250 619 215 611 170"></path>
+            <path class="trunk-ridge ridge-c" d="M537 742 C519 653 534 592 509 526 C486 466 461 421 489 336"></path>
+            <path class="bark-scar scar-a" d="M598 650 C630 626 642 592 628 558 C607 587 594 616 598 650 Z"></path>
+            <path class="bark-scar scar-b" d="M546 488 C572 464 579 433 565 405 C548 428 538 456 546 488 Z"></path>
+          </g>
+        </svg>
+
+        <svg class="tree-layer major-branch-layer breeze-layer" viewBox="0 0 1200 900" aria-hidden="true">
+          <path class="painted-branch b1" d="M579 356 C493 279 388 232 214 214"></path>
+          <path class="painted-branch b2" d="M603 320 C699 222 825 172 1042 164"></path>
+          <path class="painted-branch b3" d="M557 475 C449 418 319 401 108 445"></path>
+          <path class="painted-branch b4" d="M654 474 C774 413 909 407 1108 462"></path>
+          <path class="painted-branch b5" d="M591 246 C554 158 467 102 340 70"></path>
+          <path class="painted-branch b6" d="M616 250 C676 152 780 88 945 66"></path>
+          <path class="painted-branch b7" d="M571 572 C492 589 428 651 361 752"></path>
+          <path class="painted-branch b8" d="M656 580 C744 622 811 692 858 790"></path>
+        </svg>
+
+        <svg class="tree-layer secondary-branch-layer breeze-layer" viewBox="0 0 1200 900" aria-hidden="true">
+          <path d="M322 228 C277 178 223 151 145 139"></path>
+          <path d="M392 245 C341 280 276 306 185 317"></path>
+          <path d="M780 191 C839 235 905 257 997 264"></path>
+          <path d="M864 176 C921 129 974 109 1076 108"></path>
+          <path d="M318 416 C273 379 222 363 148 370"></path>
+          <path d="M286 422 C246 471 191 499 104 518"></path>
+          <path d="M821 430 C885 384 954 365 1060 377"></path>
+          <path d="M852 437 C913 491 975 522 1089 534"></path>
+          <path d="M517 170 C485 134 442 111 376 95"></path>
+          <path d="M706 165 C748 121 807 94 888 79"></path>
+          <path d="M478 610 C426 617 380 646 327 708"></path>
+          <path d="M747 640 C799 664 842 706 885 775"></path>
+        </svg>
+
+        <div class="tree-layer blossom-layer breeze-layer" id="paintedBlossoms">
+          <span class="canopy-cluster cluster-a" data-petal-source style="--x: 13%; --y: 16%; --w: 28%; --h: 22%; --delay: -1s;"></span>
+          <span class="canopy-cluster cluster-b" data-petal-source style="--x: 31%; --y: 4%; --w: 31%; --h: 24%; --delay: -3s;"></span>
+          <span class="canopy-cluster cluster-c" data-petal-source style="--x: 53%; --y: 8%; --w: 35%; --h: 25%; --delay: -2s;"></span>
+          <span class="canopy-cluster cluster-d" data-petal-source style="--x: 1%; --y: 35%; --w: 30%; --h: 22%; --delay: -4s;"></span>
+          <span class="canopy-cluster cluster-e" data-petal-source style="--x: 65%; --y: 34%; --w: 33%; --h: 23%; --delay: -1.5s;"></span>
+          <span class="canopy-cluster cluster-f" data-petal-source style="--x: 26%; --y: 29%; --w: 44%; --h: 28%; --delay: -5s;"></span>
+          <span class="canopy-cluster cluster-g" data-petal-source style="--x: 19%; --y: 52%; --w: 24%; --h: 18%; --delay: -2.8s;"></span>
+          <span class="canopy-cluster cluster-h" data-petal-source style="--x: 56%; --y: 53%; --w: 27%; --h: 19%; --delay: -4.6s;"></span>
+        </div>
+
+        <div class="tree-layer highlight-layer breeze-layer" id="paintedHighlights"></div>
+      </div>
+    </div>
+    <div class="flower-frame left" id="leftFlowers"></div>
+    <div class="flower-frame right" id="rightFlowers"></div>
+    <div class="petal-layer" id="petalLayer"></div>
+    <div class="finale-glow-field" id="finaleGlowField" aria-hidden="true"></div>
+  </div>
+
+  <main>
+    <section class="hero story-panel" data-stage="0">
+      <div class="hero-copy">
+        <p class="kicker">An ancient spring archive</p>
+        <h1>Sakura Memory Garden</h1>
+        <p class="creator-credit">Created by REI</p>
+        <div class="hero-poem">
+          <p>Beneath the Sakura tree,<br>some stories bloom before they are ever spoken.</p>
+          <p>Walk gently through these petals of spring.</p>
+          <p>Every blossom carries a quiet feeling,<br>every branch holds an unspoken thought,<br>and every falling petal drifts between memory and prayer.</p>
+          <p>Some people arrive like seasons.</p>
+          <p>Not with noise.</p>
+          <p>Not with certainty.</p>
+          <p>But with a softness that slowly turns ordinary days into beautiful ones.</p>
+          <p>And long after the petals have fallen,<br>their presence remains woven into the garden.</p>
+        </div>
+        <a class="enter-button" href="#letters">Enter the Garden</a>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="letters-section story-panel garden-gate" id="letters" data-stage="2" aria-hidden="true">
+      <div class="letter-journey">
+        <article class="letter-card" data-letter>
+          <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="letter-preview">
+              <span>Letter 01</span>
+              <h3>When Spring Began To Stay</h3>
+              <button type="button">Open</button>
+            </div>
+          </div>
+          <div class="opened-letter">
+            <h3>When Spring Began To Stay</h3>
+            <p>Some people enter a life so quietly that their arrival almost goes unnoticed.<br><br>Then one day, while looking back, it becomes impossible to imagine those same days without them.<br><br>That is what this season has felt like.<br><br>Like the first blossom appearing on a branch after a long winter.<br><br>Not loud enough to demand attention,<br>yet beautiful enough to change the entire view.<br><br>There is a certain comfort in knowing that somewhere in this vast world, there is someone whose presence can make an ordinary day feel a little lighter.<br><br>A simple conversation can become the best part of an evening.<br><br>A small message can bring a smile that stays longer than expected.<br><br>And without realizing it, gratitude begins to grow.<br><br>Like roots beneath a tree.<br><br>Quietly.<br><br>Steadily.<br><br>Beautifully.<br><br>Perhaps some of Allah's blessings arrive this way.<br><br>Not wrapped in grand moments,<br>but hidden inside the people He places in our path.<br><br>And before even realizing it, the garden begins to bloom.</p>
+          </div>
+        </article>
+        <article class="letter-card" data-letter>
+          <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="letter-preview">
+              <span>Letter 02</span>
+              <h3>Among The Falling Petals</h3>
+              <button type="button">Open</button>
+            </div>
+          </div>
+          <div class="opened-letter">
+            <h3>Among The Falling Petals</h3>
+            <p>And as the blossoms continued to grow, so did the appreciation for the moments they surrounded.<br><br>The strange thing about care is that it rarely announces itself.<br><br>It appears in the smallest places.<br><br>In wondering whether someone reached home safely.<br><br>In hoping their day has been kind to them.<br><br>In wishing that their worries become lighter and their happiness becomes greater.<br><br>Some people become part of our daily thoughts not because we try to keep them there, but because their presence naturally settles within the heart.<br><br>Like Sakura petals resting upon the grass.<br><br>Gentle.<br><br>Unforced.<br><br>At peace.<br><br>There are many people we meet throughout life.<br><br>Yet only a few leave behind a feeling of comfort that remains long after conversations end.<br><br>A feeling that quietly says:<br><br>"I am grateful that our paths crossed."<br><br>And perhaps that is one of the most beautiful forms of care.<br><br>Not possession.<br><br>Not expectation.<br><br>Simply appreciation.<br><br>A sincere wish for someone's happiness.<br><br>A silent prayer for their well-being.<br><br>A hope that every season ahead treats them gently.</p>
+          </div>
+        </article>
+        <article class="letter-card" data-letter>
+          <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="letter-preview">
+              <span>Letter 03</span>
+              <h3>A Prayer Beneath The Blossoms</h3>
+              <button type="button">Open</button>
+            </div>
+          </div>
+          <div class="opened-letter">
+            <h3>A Prayer Beneath The Blossoms</h3>
+            <p>And now, standing beneath the fully bloomed branches of this garden, there is only one feeling that remains.<br><br>Gratitude.<br><br>Gratitude for every conversation.<br><br>For every smile.<br><br>For every moment that became brighter simply because it was shared.<br><br>Life changes.<br><br>Seasons change.<br><br>Blossoms bloom and eventually fall.<br><br>Yet some people leave behind something deeper than memories.<br><br>They leave behind warmth.<br><br>And warmth has a way of staying.<br><br>So if there is one prayer hidden among these petals, it is this:<br><br>May Allah place endless barakah in your life.<br><br>May He protect your heart from sorrow.<br><br>May He replace every difficulty with ease.<br><br>May He fill your days with peace, your path with light, and your future with goodness beyond imagination.<br><br>And if the seasons continue to change, as they always do, then may they continue to bring new reasons to smile, new blessings to cherish, and new moments worth remembering.<br><br>Some blossoms bloom for a season.<br><br>Some remain within the heart.<br><br>And some become part of the garden forever.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="finale story-panel garden-gate" id="finale" data-stage="6" aria-label="Closing reflection" aria-hidden="true">
+      <div class="garden-closing">
+        <blockquote class="closing-quote">
+          <p class="closing-line" style="--line-delay: 0">Some blossoms are carried away by the wind.</p>
+          <p class="closing-line" style="--line-delay: 1">Some remain beneath the tree.</p>
+          <p class="closing-line" style="--line-delay: 2">And some become so deeply woven into the garden</p>
+          <p class="closing-line" style="--line-delay: 3">that every bloom, every season,</p>
+          <p class="closing-line" style="--line-delay: 4">and every beautiful memory somehow leads back to them.</p>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/scroll-engine.js"></script>
+  <script src="js/tree-growth.js"></script>
+  <script src="js/petals.js"></script>
+  <script src="js/flowers.js"></script>
+  <script src="js/letters.js"></script>
+  <script src="js/finale.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

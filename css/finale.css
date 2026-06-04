@@ -1,0 +1,172 @@
+/* ── Finale: garden closing beneath the full bloom ── */
+
+body.finale-active {
+  --stage-progress: 1;
+}
+
+.finale {
+  min-height: 100vh;
+  min-height: 100dvh;
+  align-items: end;
+  justify-items: center;
+  padding:
+    clamp(10rem, 28vh, 16rem)
+    clamp(1.5rem, 5vw, 4rem)
+    clamp(3.5rem, 9vh, 6rem);
+  text-align: center;
+}
+
+.garden-closing {
+  width: min(100%, 680px);
+  margin-inline: auto;
+}
+
+.closing-quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.closing-line {
+  margin: 0 0 clamp(0.75rem, 1.8vw, 1.1rem);
+  opacity: 0;
+  transform: translateY(14px);
+  color: rgba(58, 45, 37, 0.9);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.05rem);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.62;
+  letter-spacing: 0.015em;
+  text-shadow:
+    0 2px 28px rgba(255, 249, 243, 0.98),
+    0 1px 12px rgba(244, 217, 139, 0.35);
+}
+
+.closing-line:last-child {
+  margin-bottom: 0;
+}
+
+.finale.is-active .closing-line {
+  animation: closingLineReveal 2.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.8s + var(--line-delay) * 0.65s);
+}
+
+/* ── Ambient finale atmosphere ── */
+
+body.finale-active .tree-stage {
+  opacity: 1;
+  filter: saturate(1.12) brightness(1.05);
+  transition:
+    opacity 2.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 2.8s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow:
+    0 42px 120px rgba(58, 45, 37, 0.28),
+    0 16px 48px rgba(216, 112, 147, 0.2),
+    0 0 80px rgba(244, 217, 139, 0.22),
+    inset 0 0 0 1px rgba(255, 249, 243, 0.52);
+}
+
+body.finale-active .realistic-sakura {
+  animation: treeSway 16s ease-in-out infinite alternate;
+}
+
+body.finale-active .realistic-sakura img {
+  filter: saturate(1.12) contrast(0.97) brightness(1.07);
+  transition: filter 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.finale-active .realistic-sakura::before {
+  background:
+    radial-gradient(circle at 26% 17%, rgba(255, 249, 243, 0.28), transparent 24%),
+    radial-gradient(circle at 72% 28%, rgba(244, 217, 139, 0.28), transparent 30%),
+    radial-gradient(ellipse at 50% 52%, transparent 0 48%, rgba(58, 45, 37, 0.14) 88%),
+    linear-gradient(90deg, rgba(58, 45, 37, 0.12), transparent 18%, transparent 82%, rgba(58, 45, 37, 0.14)),
+    linear-gradient(180deg, rgba(255, 249, 243, 0.06), rgba(255, 249, 243, 0.32));
+  transition: background 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.finale-active .sky-glow {
+  background:
+    radial-gradient(circle at 24% 18%, rgba(244, 217, 139, 0.62), transparent 30%),
+    radial-gradient(circle at 62% 16%, rgba(247, 197, 216, 0.38), transparent 34%),
+    linear-gradient(180deg, rgba(255, 245, 232, 0.82), rgba(247, 231, 206, 0.32));
+  transition: background 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.finale-active .sun-rays {
+  opacity: 0.3;
+  transition: opacity 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.finale-active .ambient-scene::after {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(244, 217, 139, 0.12), transparent 38%),
+    linear-gradient(90deg, rgba(255, 249, 243, 0.38), rgba(255, 249, 243, 0.06) 48%, rgba(255, 249, 243, 0.28)),
+    linear-gradient(180deg, rgba(255, 245, 232, 0.08), rgba(255, 249, 243, 0.34));
+  transition: background 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.finale-glow-field {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.finale-active .finale-glow-field {
+  opacity: 1;
+}
+
+.finale-glow-field span {
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(244, 217, 139, 0.95) 0%, rgba(244, 217, 139, 0.4) 42%, transparent 72%);
+  box-shadow: 0 0 14px rgba(244, 217, 139, 0.55);
+  opacity: 0;
+  animation: goldenParticleDrift var(--duration) ease-in-out infinite alternate;
+  animation-delay: calc(var(--delay) + 1.4s);
+  animation-play-state: paused;
+}
+
+body.finale-active .finale-glow-field.is-visible span {
+  opacity: var(--particle-alpha, 0.68);
+  transition: opacity 2.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay);
+  animation-play-state: running;
+}
+
+@media (max-width: 560px) {
+  .finale {
+    padding:
+      clamp(8rem, 24vh, 12rem)
+      1.25rem
+      clamp(3rem, 8vh, 5rem);
+  }
+
+  .closing-line {
+    font-size: clamp(1.28rem, 5.2vw, 1.55rem);
+    line-height: 1.58;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.garden-entered .letter-journey {
+    animation: none;
+  }
+
+  .finale.is-active .closing-line {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  body.finale-active .realistic-sakura {
+    animation: none;
+  }
+}

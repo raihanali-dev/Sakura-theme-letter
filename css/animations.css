@@ -1,0 +1,137 @@
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(244, 217, 139, 0.14), 0 16px 38px rgba(107, 79, 58, 0.13); }
+  50% { box-shadow: 0 0 0 12px rgba(244, 217, 139, 0.22), 0 20px 48px rgba(107, 79, 58, 0.16); }
+}
+
+@keyframes scrollCue {
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  35% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, 18px); }
+}
+
+@keyframes treeSway {
+  from { transform: rotate(-0.45deg) translateX(-2px); }
+  to { transform: rotate(0.55deg) translateX(2px); }
+}
+
+@keyframes branchBreeze {
+  from { transform: translateX(-3px) rotate(-0.22deg); }
+  to { transform: translateX(4px) rotate(0.28deg); }
+}
+
+@keyframes bloomBreath {
+  from { transform: scale(0.985); opacity: 0.34; }
+  to { transform: scale(1.025); opacity: 0.54; }
+}
+
+@keyframes canopyBreath {
+  from { transform: rotate(var(--tilt, 0deg)) scale(0.982); opacity: 0.82; }
+  to { transform: rotate(var(--tilt, 0deg)) scale(1.022); opacity: 0.97; }
+}
+
+@keyframes blossomFloat {
+  from { transform: translateY(-2px) rotate(-3deg); }
+  to { transform: translateY(3px) rotate(4deg); }
+}
+
+@keyframes blossomBob {
+  from { transform: translate(-50%, calc(-50% - 2px)) rotate(var(--r)); }
+  to { transform: translate(-50%, calc(-50% + 3px)) rotate(calc(var(--r) + 7deg)); }
+}
+
+@keyframes highlightBob {
+  from { transform: translate(-50%, calc(-50% - 3px)) rotate(var(--r)); }
+  to { transform: translate(-50%, calc(-50% + 4px)) rotate(calc(var(--r) + 4deg)); }
+}
+
+@keyframes pollenDrift {
+  from { transform: translate3d(-14px, -10px, 0); opacity: 0.2; }
+  to { transform: translate3d(18px, 24px, 0); opacity: 0.85; }
+}
+
+@keyframes petalFall {
+  from {
+    transform: translate3d(var(--start-x), var(--start-y), 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% { opacity: var(--alpha); }
+  88% { opacity: var(--alpha); }
+  to {
+    transform: translate3d(calc(var(--start-x) + var(--drift)), 112vh, 0) rotate(var(--spin));
+    opacity: 0;
+  }
+}
+
+@keyframes smallPetals {
+  from { transform: translateY(-4px) rotate(-2deg); opacity: 0.55; }
+  to { transform: translateY(7px) rotate(3deg); opacity: 0.92; }
+}
+
+@keyframes closingLineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldenParticleDrift {
+  from { transform: translate3d(-8px, -6px, 0); }
+  to { transform: translate3d(10px, 12px, 0); }
+}
+
+.petal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: calc(var(--size) * 1.55);
+  border-radius: 82% 16% 74% 22% / 72% 22% 82% 28%;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 32% 18%, rgba(255, 255, 255, 0.95), transparent 24%),
+    linear-gradient(150deg, #fff8fb 0%, #f7d7e3 42%, #e89ab5 100%);
+  box-shadow: 0 0 8px rgba(244, 217, 139, var(--sparkle));
+  animation: petalFall var(--duration) cubic-bezier(.36,.04,.64,.96) infinite;
+  animation-delay: var(--delay);
+}
+
+.petal::after {
+  content: "";
+  position: absolute;
+  left: 45%;
+  top: 12%;
+  width: 1px;
+  height: 72%;
+  background: rgba(216, 112, 147, 0.3);
+  transform: rotate(18deg);
+}
+
+body.letter-sequence-active .petal {
+  animation-play-state: paused;
+  opacity: 0.18;
+}
+
+body.letter-sequence-active .pollen-field span {
+  animation-play-state: paused;
+}
+
+@media (hover: none) and (pointer: coarse), (max-width: 920px) {
+  .petal {
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(:not(.letter-card):not(.letter-card *)),
+  :where(:not(.letter-card):not(.letter-card *))::before,
+  :where(:not(.letter-card):not(.letter-card *))::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

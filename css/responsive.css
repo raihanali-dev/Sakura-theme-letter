@@ -1,0 +1,89 @@
+@media (max-width: 920px) {
+  .story-panel {
+    padding: 7rem 1.25rem;
+  }
+
+  .tree-stage {
+    inset: 0.7rem;
+    width: auto;
+    bottom: auto;
+    transform: none;
+  }
+
+  .letter-journey {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  .letter-card {
+    min-height: 380px;
+  }
+
+  .letter-journey .letter-card {
+    min-height: 360px;
+  }
+
+  .reflection {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .flower-frame {
+    width: 82px;
+    opacity: 0.42;
+  }
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: clamp(3.25rem, 18vw, 5.3rem);
+  }
+
+  h2 {
+    font-size: clamp(2.25rem, 12vw, 3.5rem);
+  }
+
+  .hero {
+    align-items: center;
+    padding-top: 9vh;
+    padding-bottom: 8vh;
+  }
+
+  .hero-copy {
+    text-align: left;
+  }
+
+  .creator-credit {
+    font-size: 1.18rem;
+  }
+
+  .hero-poem {
+    padding: 0.9rem;
+  }
+
+  .hero-poem p {
+    font-size: 1.06rem;
+  }
+
+  .enter-button {
+    width: 100%;
+  }
+
+  .opened-letter {
+    padding: 2rem 1.25rem;
+  }
+
+  .letter-preview {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .letter-preview button {
+    margin-top: 1.75rem;
+  }
+
+  .letter-preview h3,
+  .opened-letter h3 {
+    font-size: 2rem;
+  }
+}
